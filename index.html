@@ -1,50 +1,536 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Happy Birthday</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday ❤️</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:linear-gradient(-45deg,#ffd6e8,#fff,#efe3ff,#ffe8d2);
+background-size:400% 400%;
+animation:bgMove 15s infinite ease;
+
+overflow:hidden;
+
+}
+
+@keyframes bgMove{
+
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+
+}
+
+.page{
+
+display:none;
+
+height:100vh;
+
+justify-content:center;
+
+align-items:center;
+
+flex-direction:column;
+
+padding:20px;
+
+animation:fade .8s;
+
+text-align:center;
+
+}
+
+.page.active{
+
+display:flex;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.glass{
+
+background:rgba(255,255,255,.28);
+
+backdrop-filter:blur(18px);
+
+padding:35px;
+
+border-radius:30px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+max-width:900px;
+
+width:90%;
+
+}
+
+#gift{
+
+font-size:150px;
+
+cursor:pointer;
+
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+50%{
+
+transform:translateY(-12px);
+
+}
+
+}
+
+.title{
+
+font-family:Great Vibes;
+
+font-size:80px;
+
+color:#ff3f87;
+
+}
+
+.subtitle{
+
+margin-top:15px;
+
+font-size:20px;
+
+color:#555;
+
+}
+
+button{
+
+padding:15px 30px;
+
+margin:15px;
+
+border:none;
+
+border-radius:40px;
+
+background:#ff4d94;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.06);
+
+}
+
+.gallery{
+
+display:grid;
+
+grid-template-columns:1fr 300px 1fr;
+
+gap:20px;
+
+align-items:center;
+
+width:95%;
+
+max-width:1200px;
+
+margin-top:25px;
+
+}
+
+.column{
+
+display:grid;
+
+gap:15px;
+
+}
+
+.column video{
+
+width:100%;
+
+border-radius:18px;
+
+}
+
+.centerPhoto img{
+
+width:100%;
+
+aspect-ratio:9/16;
+
+object-fit:cover;
+
+border-radius:22px;
+
+border:5px solid white;
+
+box-shadow:0 0 25px rgba(255,255,255,.8);
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.centerPhoto img:hover{
+
+transform:scale(1.03);
+
+}
+
+.envelope{
+
+font-size:120px;
+
+cursor:pointer;
+
+}
+
+#paper{
+
+display:none;
+
+background:#fffef8;
+
+padding:30px;
+
+border-radius:20px;
+
+margin-top:20px;
+
+max-width:700px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+
+transform-origin:top;
+
+}
+
+#typed{
+
+white-space:pre-wrap;
+
+line-height:1.8;
+
+}
+
+#viewer{
+
+display:none;
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+background:rgba(0,0,0,.9);
+
+justify-content:center;
+
+align-items:center;
+
+z-index:999;
+
+}
+
+#viewer img{
+
+max-width:90%;
+
+max-height:90%;
+
+border-radius:20px;
+
+}
+
+.float{
+
+position:fixed;
+
+top:110%;
+
+font-size:25px;
+
+animation:up linear infinite;
+
+opacity:.45;
+
+pointer-events:none;
+
+}
+
+@keyframes up{
+
+to{
+
+transform:translateY(-130vh);
+
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
-<div class="bg"></div>
-<div id="home" class="page active">
-  <div class="cake">🎂</div>
-  <h1>Happy Birthday ❤️</h1>
-  <p>May your day be filled with love and smiles.</p>
-  <div class="buttons">
-    <button onclick="showPage('memories')">✨ Memories</button>
-    <button onclick="showPage('letter')">💌 Letter For You</button>
-  </div>
+
+<div id="giftPage" class="page active">
+
+<div class="glass">
+
+<div id="gift">🎁</div>
+
+<h2>Tap the Gift</h2>
+
+<p>A special surprise is waiting for you ❤️</p>
+
 </div>
+
+</div>
+
+<div id="home" class="page">
+
+<div class="glass">
+
+<div style="font-size:100px;">🎂</div>
+
+<h1 class="title">Happy Birthday ❤️</h1>
+
+<p class="subtitle">May your life always be filled with happiness and love.</p>
+
+<button onclick="showPage('memories')">✨ Memories</button>
+
+<button onclick="showPage('letter')">💌 Letter For You</button>
+
+</div>
+
+</div>
+<!-- ========================= -->
+<!-- MEMORIES PAGE -->
+<!-- ========================= -->
 
 <div id="memories" class="page">
-<h2>Our Memories</h2>
+
+<h1 class="title">
+Our Beautiful Memories ❤️
+</h1>
+
+<p class="subtitle">
+Every memory with you is my favorite one.
+</p>
+
 <div class="gallery">
-<img src="images/photo1.jpg" onclick="openMedia(this.src)">
-<img src="images/photo2.jpg" onclick="openMedia(this.src)">
-<img src="images/photo3.jpg" onclick="openMedia(this.src)">
-<video controls src="videos/video1.mp4"></video>
-<video controls src="videos/video2.mp4"></video>
+
+<!-- Left Videos -->
+
+<div class="column">
+
+<video controls>
+<source src="videos/video1.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="videos/video2.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="videos/video3.mp4" type="video/mp4">
+</video>
+
 </div>
-<button onclick="showPage('home')">⬅ Back</button>
+
+<!-- Center Photo -->
+
+<div class="centerPhoto">
+
+<img src="images/photo1.jpg"
+onclick="openImage(this.src)">
+
 </div>
+
+<!-- Right Videos -->
+
+<div class="column">
+
+<video controls>
+<source src="videos/video4.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="videos/video5.mp4" type="video/mp4">
+</video>
+
+<video controls>
+<source src="videos/video6.mp4" type="video/mp4">
+</video>
+
+</div>
+
+</div>
+
+<br>
+
+<button onclick="showPage('home')">
+
+🏠 Home
+
+</button>
+
+<button onclick="showPage('letter')">
+
+💌 Letter
+
+</button>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- LETTER PAGE -->
+<!-- ========================= -->
 
 <div id="letter" class="page">
-<div class="envelope" onclick="openLetter()">💌</div>
-<div id="letterCard">
-<h2>My Dear ❤️</h2>
+
+<div class="glass">
+
+<div class="envelope"
+
+onclick="openLetter()">
+
+✉️
+
+</div>
+
+<div id="paper">
+
+<h1 class="title"
+
+style="font-size:55px;">
+
+My Dearest ❤️
+
+</h1>
+
 <p id="typed">
-Replace this paragraph with your personal birthday letter. The typing animation will reveal it beautifully.
+
+Happy Birthday ❤️
+
+Today is all about celebrating you.
+
+Thank you for being such an amazing person.
+
+Your smile makes every day brighter.
+
+I hope all your dreams come true.
+
+May this year bring you endless happiness,
+
+good health,
+
+success,
+
+peace,
+
+and countless beautiful memories.
+
+No matter where life takes us,
+
+I'll always treasure the moments we've shared.
+
+Happy Birthday once again.
+
+❤️❤️❤️
+
 </p>
-</div>
-<button onclick="showPage('home')">⬅ Back</button>
+
 </div>
 
-<div id="viewer" onclick="closeMedia()"><img id="bigImg"></div>
+<br>
 
-<script src="script.js"></script>
-</body>
-</html>
+<button onclick="showPage('home')">
+
+🏠 Home
+
+</button>
+
+<button onclick="showPage('memories')">
+
+📸 Memories
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- FULL SCREEN IMAGE -->
+<!-- ========================= -->
+
+<div id="viewer"
+
+onclick="closeViewer()">
+
+<img id="bigImage">
+
+</div>
