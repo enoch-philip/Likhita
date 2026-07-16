@@ -1,0 +1,22 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:linear-gradient(135deg,#ffd1dc,#fff,#e8d7ff);overflow-x:hidden;min-height:100vh}
+.bg::before,.bg::after{content:"❤️ ✨ 🎈 ❤️ ✨";position:fixed;font-size:30px;animation:float 15s linear infinite;opacity:.25}
+.bg::after{left:70%;animation-duration:18s}
+@keyframes float{from{top:100%}to{top:-20%}}
+.page{display:none;min-height:100vh;justify-content:center;align-items:center;flex-direction:column;padding:20px;animation:fade .8s}
+.active{display:flex}
+@keyframes fade{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+h1{font-family:"Great Vibes";font-size:70px;color:#ff4081}
+.cake{font-size:100px;animation:bounce 2s infinite}
+@keyframes bounce{50%{transform:translateY(-10px)}}
+.buttons{margin-top:30px;display:flex;gap:20px}
+button{padding:14px 26px;border:none;border-radius:30px;background:#ff5fa2;color:#fff;cursor:pointer;transition:.3s}
+button:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 8px 20px rgba(0,0,0,.2)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;width:100%;max-width:900px;margin:25px 0}
+.gallery img,.gallery video{width:100%;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,.15);transition:.3s}
+.gallery img:hover,.gallery video:hover{transform:scale(1.05)}
+#viewer{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);justify-content:center;align-items:center}
+#viewer img{max-width:90%;max-height:90%;border-radius:18px}
+.envelope{font-size:100px;cursor:pointer;animation:pulse 1.8s infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+#letterCard{display:none;background:#fff;padding:30px;border-radius:20px;max-width:700px;box-shadow:0 10px 25px rgba(0,0,0,.15)}
